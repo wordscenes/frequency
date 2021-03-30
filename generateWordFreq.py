@@ -42,10 +42,18 @@ language_codes = [
 
 for language_code in language_codes:
   print('Processing %s' % language_code)
-  file_name = '../../frequency/%s-freq.txt' % language_code
-  top_n = top_n_list(language_code, 100000000)
+
+  file_name = 'frequency-lists/%s-freq.txt' % language_code
+  top_n = top_n_list(language_code, 1000000000)
   with open(file_name, 'w') as file:
     for word in top_n:
       file.write('%s\n' % word)
     file.close()
+
+  file_name_2000 = 'frequency-lists-2000/%s-freq-2000.txt' % language_code
+  top_2000 = top_n_list(language_code, 2000)
+  with open(file_name_2000, 'w') as file_2000:
+    for word in top_2000:
+      file_2000.write('%s\n' % word)
+    file_2000.close()
   
